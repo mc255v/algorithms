@@ -5,7 +5,6 @@
 // defaults(aws, {compute: "lambda", storage: "s3"});
 // => {compute: "ec2", storage: "s3"}
 const defaults = (obj, ...objArray) => {
-  // [SOLUTION HERE]
   for (let i = 0; i < objArray.length; i++) {
     for (const key in objArray[i]) {
       if (!Object.prototype.hasOwnProperty.call(obj, key)) {

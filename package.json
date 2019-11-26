@@ -1,14 +1,11 @@
 {
-  "name": "code-coffee",
+  "name": "algorithm-practice",
   "version": "1.0",
   "private": true,
   "description": "",
-  "author": "Felix Kirmse for Code Chrysalis",
+  "author": "Matthew Cook",
   "scripts": {
-    "test": "mocha ./**/spec.js",
-    "test:additional": "mocha additional_spec/*.js",
-    "test:solutions": "cross-env SOLUTION=1 yarn test:additional",
-    "addProblem": "node instructor-addProblem.js"
+    "test": "mocha ./**/spec.js"
   },
   "devDependencies": {
     "bignumber.js": "^9.0.0",
