@@ -44,4 +44,25 @@ const insertionSort = (arr) => {
   return result;
 }
 
-console.log(insertionSort([1,5,3,4,3,2,1]));
+const mergeSort = (arr) => {
+  if (arr.length < 2) {
+    return arr;
+  }
+  const middle = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, middle));
+  const right = mergeSort(arr.slice(middle));
+
+  return merge(left, right);
+}
+
+const merge = (left, right) => {
+    const result = [];
+    while (left.length > 0 && right.length > 0) {
+      left[0] < right[0]
+        ? result.push(left.shift())
+        : result.push(right.shift());
+    }
+    return result.concat(left).concat(right);
+}
+
+console.log(mergeSort([1,4,3,2,78,21,99]))
