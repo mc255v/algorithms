@@ -5,7 +5,8 @@
   "description": "",
   "author": "Matthew Cook",
   "scripts": {
-    "test": "mocha ./**/spec.js"
+    "test": "mocha ./**/spec.js",
+    "test:cs": "mocha ./cs-review/tests/*.js"
   },
   "devDependencies": {
     "bignumber.js": "^9.0.0",

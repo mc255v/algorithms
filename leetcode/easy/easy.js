@@ -45,3 +45,25 @@ const romanToInt = (s) => {
   }
   return total;
 };
+
+const longestCommonPrefix = (strs) => {
+  if (strs.length < 1) return ""
+    if (strs.length === 1) return strs[0]
+    let compare = strs[0]
+    for (let i = 1; i < strs.length; i++) {
+      if (strs[i].length < 1) {
+        return ""
+      } 
+        for(let j = strs[i].length - 1; j >= 0 ; j--) {
+          if(strs[i].slice(0, j + 1) === compare.slice(0, j + 1)) {
+            compare = strs[i].slice(0, j + 1)
+            break;
+          } else if (j === 0) {
+            compare = ""
+          }
+        }
+    }
+    return compare
+};
+
+console.log(longestCommonPrefix(["abab","aba",""]));
