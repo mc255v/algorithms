@@ -66,4 +66,28 @@ const longestCommonPrefix = (strs) => {
     return compare
 };
 
-console.log(longestCommonPrefix(["abab","aba",""]));
+const isValidParens = str => {
+  const map = {
+    ")": "(",
+    "}": "{",
+    "]": "["
+  }
+  if (map[str[0]]) return false;
+  const left = [];
+  let right = 0;
+  for (let char of str) {
+    if (!map[char]) { 
+      left.push(char);
+    } else if (map[char]) {
+      if (left[left.length - 1] === map[char]) {
+        left.pop()
+        right--;
+      }
+      right++;
+    }
+  }
+  if (left.length === 0 && right === 0) return true;
+  return false;
+};
+
+console.log(isValidParens("[}]"));
