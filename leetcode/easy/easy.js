@@ -76,18 +76,18 @@ const isValidParens = str => {
   const left = [];
   let right = 0;
   for (let char of str) {
-    if (!map[char]) { 
-      left.push(char);
-    } else if (map[char]) {
+    if (map[char]) {
       if (left[left.length - 1] === map[char]) {
         left.pop()
         right--;
       }
       right++;
+    } else {
+      left.push(char);
     }
   }
   if (left.length === 0 && right === 0) return true;
   return false;
 };
 
-console.log(isValidParens("[}]"));
+console.log(isValidParens("[]"));
