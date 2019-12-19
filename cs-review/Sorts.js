@@ -129,6 +129,3 @@ const radixSort = (arr) => {
   }
   return arr;
 }
-
-console.log(radixSort([1,7,4,8,3,2,78,21,99]))
-// console.log(getDigit(1234, 2))
