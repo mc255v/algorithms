@@ -7,7 +7,7 @@ class MaxBinaryHeap {
     this.values.push(value);
     let index = this.values.length - 1;
     let parentIndex = Math.floor((index - 1) / 2);
-    while(this.values[parentIndex] < this.values[index]) {
+    while(this.values[parentIndex] <= this.values[index]) {
       [this.values[parentIndex], this.values[index]] = [this.values[index], this.values[parentIndex]];
       index = parentIndex;
       parentIndex = Math.floor((index - 1) / 2);
