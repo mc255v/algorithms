@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const BST = require('../BinarySearchTree');
 
-describe.only("BinarySearchTree", () => {
+describe("BinarySearchTree", () => {
   // Assuming no duplicates allowed
   describe("insert", () => {
     it("should insert a node and set as root for empty BST", () => {
