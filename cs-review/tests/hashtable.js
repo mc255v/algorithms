@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const HashTable = require('../HashTable');
 
-describe.only("HashTable", () => {
+describe("HashTable", () => {
   let hash;
 
   describe("Set", () => {
