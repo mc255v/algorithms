@@ -92,6 +92,7 @@ module.exports = {
     return false;
   },
 
+  // merge two sorted lists
   mergeTwoLists: (l1, l2) => {
     const result = new ListNode(0);
     let current = result;
@@ -107,6 +108,22 @@ module.exports = {
     }
     return result.next;
   },
+
+  // no duplicates in beginnning of sorted array
+  removeDuplicates(nums) {
+    if (nums.length === 0) return 0;
+    let current = 0;
+    let check = 1
+    while (check < nums.length) {
+      if (nums[current] !== nums[check]) {
+        current++;
+        nums[current] = nums[check]
+      }
+      check++;
+    }
+    return current + 1;
+  },
+  // 9
 
 }
 

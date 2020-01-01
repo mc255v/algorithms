@@ -116,4 +116,19 @@ describe("Easy 1-10", () => {
       expect(result).to.be.false;
     });
   });
+
+  describe.only("removeDuplicates", () => {
+    it("should alter array so no duplicates in beggining and return length of such", () => {
+      const test = [0,0,1,1,2,3,3,3,6,6,9]
+
+      const length = Easy.removeDuplicates(test);
+      const result = [];
+      for (let i = 0; i < length; i++) {
+        result.push(test[i]);
+      }
+
+      expect(length).to.equal(6);
+      expect(result).to.deep.equal([0,1,2,3,6,9]);
+    })
+  });
 });
