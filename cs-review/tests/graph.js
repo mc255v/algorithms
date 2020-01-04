@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const Graph = require('../Graph');
 
-describe.only("Graph", () => {
+describe("Graph", () => {
   let graph;
 
   beforeEach(() => {
@@ -61,6 +61,74 @@ describe.only("Graph", () => {
       graph.removeVertex("Tokyo");
 
       expect(graph.adjacencyList).to.deep.equal({ Seoul: [], NYC: [] });
+    });
+  });
+
+  describe("DFS Recursive & Iterative", () => {
+    it("should return an array of the vertices visited", () => {
+      graph.addVertex("A");
+      graph.addVertex("B");
+      graph.addVertex("C");
+      graph.addVertex("D");
+      graph.addVertex("E");
+      graph.addVertex("F");
+
+      graph.addEdge("A", "B");
+      graph.addEdge("A", "C");
+      graph.addEdge("B", "D");
+      graph.addEdge("C", "E");
+      graph.addEdge("D", "E");
+      graph.addEdge("D", "F");
+      graph.addEdge("E", "F");
+
+      /*
+              A
+            /   \
+           B     C
+           |     |
+           D --- E
+            \   /
+              F
+      */
+
+      const recursive = graph.dfsRecursive("A");
+      const iterative = graph.dfsIterative("A");
+      
+      expect(recursive).to.deep.equal(["A", "B", "D", "E", "C", "F"]);
+      expect(iterative).to.deep.equal(["A", "C", "E", "F", "D", "B"]);
+    });
+  });
+
+  describe("BFS", () => {
+    it("should return an array of the vertices visited", () => {
+      graph.addVertex("A");
+      graph.addVertex("B");
+      graph.addVertex("C");
+      graph.addVertex("D");
+      graph.addVertex("E");
+      graph.addVertex("F");
+
+      graph.addEdge("A", "B");
+      graph.addEdge("A", "C");
+      graph.addEdge("B", "D");
+      graph.addEdge("C", "E");
+      graph.addEdge("D", "E");
+      graph.addEdge("D", "F");
+      graph.addEdge("E", "F");
+
+      /*
+              A
+            /   \
+           B     C
+           |     |
+           D --- E
+            \   /
+              F
+      */
+
+      const bfs = graph.bfs("A");
+      
+      expect(bfs).to.deep.equal(["A", "B", "C", "D", "E", "F"]);
     });
   });
 });
