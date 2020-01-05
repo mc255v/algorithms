@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const Graph = require('../WeightedGraph');
 
-describe.only("Dijkstra's Implementation", () => {
+describe("Dijkstra's Implementation", () => {
   let graph = new Graph();
   graph.addVertex("A");
   graph.addVertex("B");
