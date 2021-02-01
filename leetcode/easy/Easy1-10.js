@@ -123,8 +123,18 @@ module.exports = {
     }
     return current + 1;
   },
-  // 9
-
+  // val is not in beginning of array and returns index position at which to stop in array
+  removeElement(nums, val) {
+    let i = 0;
+    for (let el of nums) {
+      if (el !== val) {
+        nums[i] = el;
+        i++;
+      }
+    }
+    return i;
+  }
+  // 10
 }
 
 class ListNode {
