@@ -2,12 +2,11 @@
   "name": "algorithm-practice",
   "version": "1.0",
   "private": true,
-  "description": "",
+  "description": "Algorithm practice for personal studies",
   "author": "Matthew Cook",
   "scripts": {
-    "test": "mocha ./**/spec.js",
-    "test:cs": "mocha ./cs-review/tests/*.js",
-    "test:easy": "mocha ./leetcode/tests/*.js"
+    "test:old": "mocha ./Old/**/spec.js",
+    "test:leetcode": "mocha ./LeetCode/**/spec.js"
   },
   "devDependencies": {
     "bignumber.js": "^9.0.0",
