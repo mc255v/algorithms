@@ -18,4 +18,28 @@ describe("LeetCode Easy Problems", () => {
       expect(result2).to.deep.equal(expected2);
     });
   });
+
+  describe("isPalindrome", () => {
+    it("should return true if x is a palindrome", () => {
+      const palindrome = 12321;
+      expect(Easy.isPalindrome(palindrome)).to.be.true;
+    });
+
+    it("should return false if x is not a palindrome", () => {
+      const notPalindrome = -121;
+      expect(Easy.isPalindrome(notPalindrome)).to.be.false;
+    });
+  });
+
+  describe("romanToInt", () => {
+    it("should convert proper roman string to int", () => {
+      const roman58 = "LVIII";
+      const roman3 = "III";
+      const roman1994 = "MCMXCIV";
+
+      expect(Easy.romanToInt(roman58)).to.equal(58);
+      expect(Easy.romanToInt(roman3)).to.equal(3);
+      expect(Easy.romanToInt(roman1994)).to.equal(1994);
+    });
+  });
 });
