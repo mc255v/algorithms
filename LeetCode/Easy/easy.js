@@ -73,4 +73,18 @@ module.exports = {
     }
     return total;
   },
+  //121. Best Time to Buy and Sell Stock
+  maxProfit: (prices) => {
+    let bought = prices[0];
+    let profit = 0;
+    for (let i = 1; i < prices.length; i++) {
+      const potentialProfit = prices[i] - bought;
+      if (potentialProfit > 0 && potentialProfit > profit) {
+        profit = potentialProfit;
+      } else if (bought > prices[i]) {
+        bought = prices[i];
+      }
+    }
+    return profit;
+  },
 };

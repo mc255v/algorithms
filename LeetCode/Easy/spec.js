@@ -42,4 +42,19 @@ describe("LeetCode Easy Problems", () => {
       expect(Easy.romanToInt(roman1994)).to.equal(1994);
     });
   });
+
+  describe("maxProfit", () => {
+    it("should return best possible profit", () => {
+      const prices = [7, 1, 5, 3, 6, 4];
+      const expectedBestProfit = 5;
+
+      expect(Easy.maxProfit(prices)).to.equal(expectedBestProfit);
+    });
+    it("should return 0 if there is no possible profit", () => {
+      const prices = [7, 6, 4, 3, 1];
+      const expectedBestProfit = 0;
+
+      expect(Easy.maxProfit(prices)).to.equal(expectedBestProfit);
+    });
+  });
 });
