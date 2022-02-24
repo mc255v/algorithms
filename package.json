@@ -6,7 +6,7 @@
   "author": "Matthew Cook",
   "scripts": {
     "test:old": "mocha ./Old/**/spec.js",
-    "test:leetcode": "mocha ./LeetCode/**/spec.js"
+    "test:leetcode": "mocha ./LeetCode/**/**/*.spec.js"
   },
   "devDependencies": {
     "bignumber.js": "^9.0.0",
