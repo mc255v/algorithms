@@ -25,4 +25,25 @@ describe("LeetCode Easy String Problems", () => {
       expect(EasyString.romanToInt(roman1994)).to.equal(1994);
     });
   });
+
+  describe("longestCommonPrefix", () => {
+    it("should return the longest common prefix among strings in the array", () => {
+      const test = ["flower", "flow", "flight"];
+      const expected = "fl";
+
+      expect(EasyString.longestCommonPrefix(test)).to.equal(expected);
+    });
+    it("should return the longest common prefix among strings in the array", () => {
+      const test = ["ab", "a"];
+      const expected = "a";
+
+      expect(EasyString.longestCommonPrefix(test)).to.equal(expected);
+    });
+    it("should return an empty string if no common prefix", () => {
+      const test = ["c", "acc", "ccc"];
+      const expected = "";
+
+      expect(EasyString.longestCommonPrefix(test)).to.equal(expected);
+    });
+  });
 });

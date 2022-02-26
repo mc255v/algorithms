@@ -49,4 +49,18 @@ module.exports = {
     }
     return total;
   },
+  // 14. Longest Common Prefix
+  // harder than I expected, took multiple iterations :'(
+  longestCommonPrefix: (strs) => {
+    let commonPrefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+      for (let j = strs[i].length; j >= 0; j--) {
+        if (strs[i].indexOf(commonPrefix) !== 0) {
+          commonPrefix = commonPrefix.slice(0, j);
+        }
+        if (!commonPrefix) return "";
+      }
+    }
+    return commonPrefix;
+  },
 };
