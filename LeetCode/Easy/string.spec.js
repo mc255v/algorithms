@@ -46,4 +46,22 @@ describe("LeetCode Easy String Problems", () => {
       expect(EasyString.longestCommonPrefix(test)).to.equal(expected);
     });
   });
+
+  describe("validParens", () => {
+    it("should return true for valid parenthesis pairs", () => {
+      const test = "()[]{}";
+
+      expect(EasyString.validParens(test)).to.be.true;
+    });
+    it("should return false for invalid parenthesis", () => {
+      const test = "((";
+
+      expect(EasyString.validParens(test)).to.be.false;
+    });
+    it("should return false if s.length < 2", () => {
+      const test = "{";
+
+      expect(EasyString.validParens(test)).to.be.false;
+    });
+  });
 });

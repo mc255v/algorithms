@@ -63,4 +63,24 @@ module.exports = {
     }
     return commonPrefix;
   },
+  // 20. Valid Parenthesis
+  validParens: (s) => {
+    if (s.length < 2) return false;
+    const map = {
+      ")": "(",
+      "]": "[",
+      "}": "{",
+    };
+    const left = [];
+    for (let i = 0; i < s.length; i++) {
+      if (!map[s[i]]) {
+        left.push(s[i]);
+      } else {
+        if (left.pop() !== map[s[i]]) {
+          return false;
+        }
+      }
+    }
+    return left.length === 0;
+  },
 };
