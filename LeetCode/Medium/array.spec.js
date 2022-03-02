@@ -78,4 +78,14 @@ describe("LeetCode Medium Array Problems", () => {
       expect(MediumArray.findTarget(test, 0)).to.equal(4);
     });
   });
+
+  describe("maxContainer", () => {
+    it("should return the max area from the supplied array", () => {
+      const test = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+      const test2 = [1, 1];
+
+      expect(MediumArray.maxContainer(test)).to.equal(49);
+      expect(MediumArray.maxContainer(test2)).to.equal(1);
+    });
+  });
 });

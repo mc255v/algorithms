@@ -60,4 +60,22 @@ module.exports = {
     }
     return -1;
   },
+  //11. Container With Most Water
+  maxContainer: (height) => {
+    let left = 0;
+    let right = height.length - 1;
+    let distance = height.length - 1;
+    const calc = () => Math.min(height[left], height[right]) * distance;
+    let total = calc();
+    while (left < right) {
+      distance = right - left;
+      total = Math.max(calc(), total);
+      if (height[left] < height[right]) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+    return total;
+  },
 };
