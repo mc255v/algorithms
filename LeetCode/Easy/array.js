@@ -52,4 +52,26 @@ module.exports = {
     });
     return result;
   },
+  //26. Remove Duplicates from Sorted Array
+  //in place and 0(1) space
+  removeDuplicates: (nums) => {
+    let idx = 0;
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] !== nums[idx]) {
+        idx++;
+        nums[idx] = nums[i];
+      }
+    }
+    return idx + 1;
+  },
+  //344. Reverse String
+  //from array of chars in place
+  reverseStringArray: (s) => {
+    let start = 0;
+    for (let i = s.length - 1; i > start; i--) {
+      [s[start], s[i]] = [s[i], s[start]];
+      start++;
+    }
+    return s;
+  },
 };

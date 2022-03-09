@@ -46,4 +46,24 @@ describe("LeetCode Easy Array Problems", () => {
       expect(EasyArray.containsDuplicate(test)).to.be.false;
     });
   });
+
+  describe("removeDuplicates", () => {
+    it("should arrange array with no duplicates in front and provide index K check array at 0 through K", () => {
+      const dups = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+      const k = 5;
+      const expected = [0, 1, 2, 3, 4];
+
+      expect(EasyArray.removeDuplicates(dups)).to.equal(k);
+      expect(dups.slice(0, k)).to.deep.equal(expected);
+    });
+  });
+
+  describe("reverseStringArray", () => {
+    it("should reverse the string (array of chars)", () => {
+      const str = ["h", "e", "l", "l", "o"];
+      const expected = ["o", "l", "l", "e", "h"];
+
+      expect(EasyArray.reverseStringArray(str)).to.deep.equal(expected);
+    });
+  });
 });
