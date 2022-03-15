@@ -74,4 +74,17 @@ module.exports = {
     }
     return s;
   },
+  //66. Plus One
+  //optimized after 2 iterations
+  plusOne: (digits) => {
+    for (let i = digits.length - 1; i >= 0; i--) {
+      digits[i]++;
+      if (digits[i] === 10) {
+        digits[i] = 0;
+      } else {
+        return digits;
+      }
+    }
+    return [1, ...digits];
+  },
 };

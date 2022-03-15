@@ -66,4 +66,15 @@ describe("LeetCode Easy Array Problems", () => {
       expect(EasyArray.reverseStringArray(str)).to.deep.equal(expected);
     });
   });
+
+  describe("plusOne", () => {
+    it("should return an array incremented by 1 as if a split number)", () => {
+      const num = [1, 2, 3, 4, 5];
+      const numExpected = [1, 2, 3, 4, 6];
+      const nines = [9, 9, 9];
+      const ninesExpected = [1, 0, 0, 0];
+      expect(EasyArray.plusOne(num)).to.deep.equal(numExpected);
+      expect(EasyArray.plusOne(nines)).to.deep.equal(ninesExpected);
+    });
+  });
 });
