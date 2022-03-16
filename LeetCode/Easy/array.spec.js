@@ -77,4 +77,13 @@ describe("LeetCode Easy Array Problems", () => {
       expect(EasyArray.plusOne(nines)).to.deep.equal(ninesExpected);
     });
   });
+
+  describe("moveZeros", () => {
+    it("should return an array with all zeros moved to end and order of non zeros unchanged)", () => {
+      const nums = [0, 1, 0, 3, 12];
+      const numsExpected = [1, 3, 12, 0, 0];
+
+      expect(EasyArray.moveZeroes(nums)).to.deep.equal(numsExpected);
+    });
+  });
 });

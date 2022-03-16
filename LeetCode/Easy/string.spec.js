@@ -64,4 +64,28 @@ describe("LeetCode Easy String Problems", () => {
       expect(EasyString.validParens(test)).to.be.false;
     });
   });
+
+  describe("strStr", () => {
+    it("should return starting idx of matching needle in haystack", () => {
+      const haystack = "hello";
+      const needle = "ll";
+      const expectedIdx = 2;
+
+      expect(EasyString.strStr(haystack, needle)).to.equal(expectedIdx);
+    });
+
+    it("should return -1 if no matching needle in haystack", () => {
+      const haystack = "aaaaa";
+      const needle = "bba";
+
+      expect(EasyString.strStr(haystack, needle)).to.equal(-1);
+    });
+
+    it("should return 0 if needle is empty string", () => {
+      const haystack = "aaaaa";
+      const needle = "";
+
+      expect(EasyString.strStr(haystack, needle)).to.equal(0);
+    });
+  });
 });

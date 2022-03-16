@@ -87,4 +87,22 @@ module.exports = {
     }
     return [1, ...digits];
   },
+  //283. Move Zeros
+  //could be optimized with single for loop
+  moveZeroes: (nums) => {
+    let start = 0;
+    while (start < nums.length - 1) {
+      if (nums[start] === 0) {
+        for (let i = start + 1; i < nums.length; i++) {
+          if (nums[i] != 0) {
+            nums[start] = nums[i];
+            nums[i] = 0;
+            break;
+          }
+        }
+      }
+      start++;
+    }
+    return nums;
+  },
 };
