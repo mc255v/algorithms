@@ -2,12 +2,23 @@ module.exports = {
   //9. Palindrome Number - check if a number 'x' is a palindrome
   isPalindrome: (x) => {
     // if using string was allowed
-    const reverse = x
-      .toString()
-      .split("")
-      .reverse()
-      .join("");
-    return x.toString() === reverse;
+    // const reverse = x
+    //   .toString()
+    //   .split("")
+    //   .reverse()
+    //   .join("");
+    // return x.toString() === reverse;
+    if (x < 0) {
+      return false;
+    }
+    let reverse = 0;
+    let num = x;
+    while (num > 0) {
+      reverse *= 10;
+      reverse += num % 10;
+      num = Math.floor(num / 10);
+    }
+    return reverse === x;
   },
   //13. Roman to Int
   //attrocious solution....didn't check well enough how to simplify or for a pattern in repeated areas
