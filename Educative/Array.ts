@@ -109,3 +109,50 @@ function findFirstUnique(arr) {
   }
   return null
 }
+
+/*
+initial simple solution O(n)
+
+function rightRotate(arr, n){ 
+  for(let i = 0; i < n; i++) {
+    arr.unshift(arr.pop())
+  }
+  return arr
+}
+*/
+// still O(n)
+function rightRotate(arr: number[], n: number){ 
+  return arr.splice(arr.length - n).concat(arr.splice(0,arr.length))
+}
+
+// negative on left, positive on right (0 counts as positive)
+function reArrange(arr: number[]) {
+  const left: number[] = []
+  const right: number[] = []
+  arr.forEach(num => {
+    if(num < 0) {
+      left.push(num)
+    } else {
+      right.push(num)
+    }
+  })
+  return left.concat(right);
+}
+
+/*
+takes sorted array and returns hightest number first, lowest second, and repeats for all numbers
+[1,2,3,4,5,6,7] => [7,1,6,2,5,3,4]
+*/
+function maxMin(arr: number[]){ 
+  const result: number[] = []
+  let left = 0
+  let right = arr.length -1
+  while(left < right) {
+    result.push(arr[right])
+    result.push(arr[left])
+    left++
+    right--
+  }
+  result.push(arr[right])
+  return result;
+}

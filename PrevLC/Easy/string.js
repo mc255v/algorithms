@@ -21,7 +21,7 @@ module.exports = {
     return reverse === x;
   },
   //13. Roman to Int
-  //attrocious solution....didn't check well enough how to simplify or for a pattern in repeated areas
+  //updated solution....could refactor a bit more and not need full map and less if checks
   romanToInt: (s) => {
     const map = {
       I: 1,
@@ -31,34 +31,28 @@ module.exports = {
       C: 100,
       D: 500,
       M: 1000,
+      IV: 4,
+      IX: 9,
+      XL: 40,
+      XC: 90,
+      CD: 400,
+      CM: 900,
     };
-    let total = 0;
+    let result = 0;
     for (let i = 0; i < s.length; i++) {
       if (i + 1 < s.length) {
-        switch (s[i]) {
-          case "I":
-            s[i + 1] === "V" || s[i + 1] === "X"
-              ? (total -= map[s[i]])
-              : (total += map[s[i]]);
-            break;
-          case "X":
-            s[i + 1] === "L" || s[i + 1] === "C"
-              ? (total -= map[s[i]])
-              : (total += map[s[i]]);
-            break;
-          case "C":
-            s[i + 1] === "D" || s[i + 1] === "M"
-              ? (total -= map[s[i]])
-              : (total += map[s[i]]);
-            break;
-          default:
-            total += map[s[i]];
+        const lookAhead = s[i] + s[i + 1];
+        if (map[lookAhead]) {
+          result += map[lookAhead];
+          i++;
+        } else {
+          result += map[s[i]];
         }
       } else {
-        total += map[s[i]];
+        result += map[s[i]];
       }
     }
-    return total;
+    return result;
   },
   // 14. Longest Common Prefix
   // harder than I expected, took multiple iterations :'(
