@@ -21,17 +21,21 @@ module.exports = {
     }
     return result;
   },
-  //121. Best Time to Buy and Sell Stock
+  /*
+  121. Best Time to Buy and Sell Stock
+  Size is O(1) and time is O(n) as go through array once
+  */
   maxProfit: (prices) => {
-    let bought = prices[0];
+    let buy = 0;
+    let sell = 1;
     let profit = 0;
-    for (let i = 1; i < prices.length; i++) {
-      const potentialProfit = prices[i] - bought;
-      if (potentialProfit > 0 && potentialProfit > profit) {
-        profit = potentialProfit;
-      } else if (bought > prices[i]) {
-        bought = prices[i];
+    while (sell < prices.length) {
+      if (prices[sell] < prices[buy]) {
+        buy = sell;
+      } else {
+        profit = Math.max(prices[sell] - prices[buy], profit);
       }
+      sell++;
     }
     return profit;
   },

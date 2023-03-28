@@ -54,19 +54,39 @@ module.exports = {
     }
     return result;
   },
-  // 14. Longest Common Prefix
-  // harder than I expected, took multiple iterations :'(
+  /*
+  14. Longest Common Prefix
+  first pass through did horizontal approach, vertical would be better with less iterations, both O(n^2)
+
   longestCommonPrefix: (strs) => {
-    let commonPrefix = strs[0];
-    for (let i = 1; i < strs.length; i++) {
-      for (let j = strs[i].length; j >= 0; j--) {
-        if (strs[i].indexOf(commonPrefix) !== 0) {
-          commonPrefix = commonPrefix.slice(0, j);
+    let lcp = strs[0];
+    let tmp = ''
+    for(let i = 1; i < strs.length; i++) {
+        for(let j = 0; j < strs[i].length; j++) {
+            if(strs[i][j] === lcp[j]) {
+                tmp += strs[i][j]
+            } else {
+                break;
+            }
         }
-        if (!commonPrefix) return "";
-      }
+        lcp = tmp
+        tmp = ''
     }
-    return commonPrefix;
+    return lcp;
+  },
+  */
+  longestCommonPrefix: (strs) => {
+    let lcp = "";
+    for (let i = 0; i < strs[0].length; i++) {
+      const char = strs[0][i];
+      for (let j = 1; j < strs.length; j++) {
+        if (strs[j][i] !== char) {
+          return lcp;
+        }
+      }
+      lcp += char;
+    }
+    return lcp;
   },
   // 20. Valid Parenthesis
   validParens: (s) => {
@@ -100,5 +120,45 @@ module.exports = {
     }
 
     return -1;
+  },
+  //125. String is valid palindrome after removing all non-alphanumeric characters and converting to lowercase
+  isStringPalindrome: (s) => {
+    const str = s.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+    let l = 0;
+    let r = str.length - 1;
+    while (l < r) {
+      if (str[l] !== str[r]) {
+        return false;
+      }
+      l++;
+      r--;
+    }
+    return true;
+  },
+  //242. Are the two strings valid anagrams, O(n + m) time and size
+  isAnagram: (s, t) => {
+    if (s.length != t.length) {
+      return false;
+    }
+    const sMap = {};
+    const tMap = {};
+    for (let i = 0; i < s.length; i++) {
+      if (sMap[s[i]]) {
+        sMap[s[i]]++;
+      } else {
+        sMap[s[i]] = 1;
+      }
+      if (tMap[t[i]]) {
+        tMap[t[i]]++;
+      } else {
+        tMap[t[i]] = 1;
+      }
+    }
+    for (const key in sMap) {
+      if (sMap[key] !== tMap[key]) {
+        return false;
+      }
+    }
+    return true;
   },
 };
