@@ -109,4 +109,21 @@ module.exports = {
     }
     return nums;
   },
+  // 704. Binary Search
+  // O(log n) time
+  search: (nums, target) => {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left <= right) {
+      const mid = Math.ceil((left + right) / 2);
+      if (nums[mid] === target) {
+        return mid;
+      } else if (target < nums[mid]) {
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    }
+    return -1;
+  },
 };
